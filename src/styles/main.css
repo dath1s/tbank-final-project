@@ -159,7 +159,7 @@ body {
 }
 
 @media (max-width: 830px) {
-    .navigation__container__right .hide{
+    .navigation__container__right .hide_size {
         display: none;
     }
 }
@@ -186,7 +186,26 @@ body {
     }
 
     .navigation__container__right button:hover,
-    .navigation__container__right button:focus{
+    .navigation__container__right button:focus {
         background: rgba(36, 74, 127, 0.09);
     }
+}
+
+.navigation__container__right > a {
+    margin-left: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: solid rgba(0, 0, 0, 0) 2px;
+    transition: all ease-out 0.3s;
+}
+
+.navigation__container__right > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+}
+
+.navigation__container__right > a:hover {
+    border: solid rgba(0, 0, 0, 0.5) 2px;
 }
