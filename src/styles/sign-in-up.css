@@ -1,0 +1,230 @@
+@media (min-width: 769px) {
+    :root {
+        --big-font: 28px;
+        --mid-font: 16px;
+        --small-font: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --big-font: 24px;
+        --mid-font: 16px;
+        --small-font: 10px;
+    }
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    font-family: "Tinkoff Sans", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+    font-family: "Tinkoff Sans";
+    src: url("../fonts/TinkoffSans-Bold.woff2") format("woff2"), url("../fonts/TinkoffSans-Bold.woff") format("woff"), url("../fonts/TinkoffSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tinkoff Sans";
+    src: url("../fonts/TinkoffSans-Medium.woff2") format("woff2"), url("../fonts/TinkoffSans-Medium.woff") format("woff"), url("../fonts/TinkoffSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tinkoff Sans";
+    src: url("../fonts/TinkoffSans-Regular.woff2") format("woff2"), url("../fonts/TinkoffSans-Regular.woff") format("woff"), url("../fonts/TinkoffSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hide {
+    display: none;
+}
+
+.navigation {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+}
+
+.navigation__container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    order: 0;
+}
+
+@media (min-width: 769px) {
+    .navigation {
+        background: rgb(246, 247, 248);
+    }
+
+    .navigation__container {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+}
+
+.card_input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 386px;
+    max-width: 414px;
+    border-radius: 24px;
+}
+
+.card_signin {
+    height: 292px;
+}
+
+@media (min-width: 768px) {
+    .card_input {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 34px;
+    }
+}
+
+.card_input__header {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_input__header h1 {
+    font-size: var(--big-font);
+    font-weight: 500;
+}
+
+.card_input__form {
+    width: 100%;
+    height: 232px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_signin {
+    height: 156px;
+}
+
+.card_input__form__wrapper {
+    width: 100%;
+    max-width: 366px;
+    height: 56px;
+    margin-bottom: 20px;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+}
+
+.card_input__form input {
+    width: 100%;
+    height: 56px;
+    padding: 10px 16px 0px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background: rgba(36, 74, 127, 0.06);
+    box-sizing: border-box;
+    font-size: var(--mid-font);
+    cursor: text;
+    transition: 0.15s cubic-bezier(0.2, 0, 1, 1);
+}
+
+.card_input__form label {
+    position: absolute;
+    margin-left: 16px;
+    opacity: 0.6;
+    font-size: var(--mid-font);
+    transition: 0.3s ease-out;
+}
+
+.card_input__form input:focus, .card_input__form input:not(:placeholder-shown) {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.card_input__form input:focus + label, .card_input__form input:not(:placeholder-shown) + label {
+    font-size: var(--small-font);
+    opacity: 1;
+    margin-bottom: 25px;
+}
+
+.card_input__footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card_input__footer button {
+    width: 177px;
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: var(--mid-font);
+    cursor: pointer;
+    transition: 0.15s cubic-bezier(0.2, 0, 1, 1);
+}
+
+.card_input__footer__register_enter,
+.card_input__footer__enter_register {
+    background: rgba(36, 74, 127, 0.06);
+    color: rgb(18, 109, 247);
+}
+
+.card_input__footer__register_register,
+.card_input__footer__enter_enter {
+    background: rgb(255, 221, 45);
+}
+
+@media (max-width: 768px) {
+    .card_input__footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card_input__footer button {
+        width: 100%;
+        max-width: 366px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (hover: hover) {
+    .card_input__form input:hover {
+        background: rgba(36, 74, 127, 0.09);
+    }
+
+    .card_input__footer__register_enter:hover,
+    .card_input__footer__enter_register:hover {
+        background: rgba(36, 74, 127, 0.09);
+    }
+
+    .card_input__footer__register_register:hover,
+    .card_input__footer__enter_enter:hover {
+        background: rgb(253, 203, 51);
+    }
+}

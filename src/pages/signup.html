@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="../scripts/sign-in-up.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../styles/sign-in-up.css">
+</head>
+<body>
+<header class="navigation">
+    <div class="navigation__container">
+        <div class="navigation__container__logo">
+            <img src="../images/tbank-logo.svg" alt="logo">
+        </div>
+    </div>
+</header>
+
+<div class="card_input card_signin" id="sign_in">
+    <div class="card_input__header">
+        <h1>Вход</h1>
+    </div>
+    <form action="http://localhost:63342/final_project_tbank/portfolio_storage_project/final_project_tbank/src/pages/POST">
+        <div class="card_input__form form_signin">
+            <div class="card_input__form__wrapper">
+                <input type="text" id="login_signin" placeholder=" ">
+                <label for="login_signin">Логин</label>
+            </div>
+
+            <div class="card_input__form__wrapper">
+                <input type="password" id="password_signin" placeholder=" ">
+                <label for="password_signin">Пароль</label>
+            </div>
+        </div>
+        <div class="card_input__footer">
+            <button type="button" onclick="hideEnterForm()" class="card_input__footer__enter_register"
+                    id="enter_page__register_but">Зарегистрироваться
+            </button>
+            <button type="submit" class="card_input__footer__enter_enter" id="enter_page__enter_but">Войти</button>
+        </div>
+    </form>
+</div>
+
+<div class="card_input hide" id="sign_up">
+    <div class="card_input__header">
+        <h1>Регистрация</h1>
+    </div>
+    <form action="http://localhost:63342/final_project_tbank/portfolio_storage_project/final_project_tbank/src/pages/POST">
+        <div class="card_input__form">
+            <div class="card_input__form__wrapper">
+                <input type="text" id="login" placeholder=" ">
+                <label for="login">Логин</label>
+            </div>
+
+            <div class="card_input__form__wrapper">
+                <input type="password" id="password" placeholder=" ">
+                <label for="password">Пароль</label>
+            </div>
+
+            <div class="card_input__form__wrapper">
+                <input type="password" id="password-repeat" placeholder=" ">
+                <label for="password-repeat">Повторите пароль</label>
+            </div>
+        </div>
+        <div class="card_input__footer">
+            <button type="button" onclick="hideRegisterForm()" class="card_input__footer__register_enter"
+                    id="register_page__enter_but">Войти
+            </button>
+            <button type="submit" class="card_input__footer__register_register" id="register_page__register_but">
+                Зарегистрироваться
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
