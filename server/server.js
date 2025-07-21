@@ -8,6 +8,14 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const APP_PORT = 9999;
 
+// Настройка middleware для ограничения запросов к сторонним API с сайта, типам запросов и содержанием запросов
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 // Middleware - промежуточный обработчик для входящих JSON и Cookie
 app.use(express.json());
 app.use(cookieParser());
