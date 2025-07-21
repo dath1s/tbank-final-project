@@ -10,9 +10,10 @@ const APP_PORT = 9999;
 
 // Настройка middleware для ограничения запросов к сторонним API с сайта, типам запросов и содержанием запросов
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9998');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
 
@@ -70,6 +71,10 @@ app.post('/api/login', async (req, res) => {
         return res.status(401).json({message: 'Неверное имя пользователя или пароль'});
     }
 
+    if (req.cookies.sessionId) {
+        sessions.delete(req.cookies.sessionId);
+    }
+
     // Удачная аутентификация. Создание сессии.
     const sessionId = uuidv4();
     const expires = new Date().getTime() + SESSION_DURATION_MS;
@@ -101,14 +106,14 @@ app.post('/api/logout', (req, res) => {
 
 // MIDDLEWARE для проверки пользователя на авторизованность для запросов только для авторизированных пользователей
 const authMiddleware = (req, res, next) => {
-    const {sessionId} = req.cookie;
+    const {sessionId} = req.cookies;
     if (!sessionId)
         return res.status(401).json({message: 'Требуется авторизация'});
 
     const session = sessions.get(sessionId);
     if (!session || new Date().getTime() > session.expires) {
-        if (session) session.delete(sessionId);
-        res.clear.cookie('sessionId');
+        if (session) sessions.delete(sessionId);
+        res.clearCookie('sessionId');
         return res.status(401).json({message: 'Сессия больше не действительна'});
     }
 
@@ -121,6 +126,10 @@ const authMiddleware = (req, res, next) => {
 
     next();
 }
+
+app.post('/', authMiddleware, (req, res) => {
+    return res.status(200).json({message: "Пользователь авторизирован"});
+});
 
 // Запуск сервера
 app.listen(APP_PORT, () => {

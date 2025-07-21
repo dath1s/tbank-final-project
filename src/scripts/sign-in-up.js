@@ -2,16 +2,26 @@ async function hideRegisterForm() {
     const enterFormBlock = await document.getElementById('sign_in');
     const registerFormBlock = await document.getElementById('sign_up');
 
+    const loginForm = document.getElementById('sign_in__form');
+    const registerForm = document.getElementById('sign_up__form');
+
     registerFormBlock.classList.add('hide');
     enterFormBlock.classList.remove('hide');
+
+    registerForm.reset();
 }
 
 async function hideEnterForm() {
-    const enterForm = await document.getElementById('sign_in');
-    const registerForm = await document.getElementById('sign_up');
+    const enterFormBlock = await document.getElementById('sign_in');
+    const registerFormBlock = await document.getElementById('sign_up');
 
-    enterForm.classList.add('hide');
-    registerForm.classList.remove('hide');
+    const loginForm = document.getElementById('sign_in__form');
+    const registerForm = document.getElementById('sign_up__form');
+
+    enterFormBlock.classList.add('hide');
+    registerFormBlock.classList.remove('hide');
+
+    loginForm.reset();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -46,7 +56,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 return -1;
             }
 
-            console.log(username, password);
+            const isUsernameExists = await fetch('http://localhost:9999/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json;charset=utf-8',
+                },
+                body: JSON.stringify({username, password}),
+                credentials: "include"
+            });
+
+            switch (isUsernameExists.status) {
+                case 401:
+                    const data = await isUsernameExists.json();
+                    showErrorContainer(data.message);
+                    break;
+                case 200:
+                    console.log('Вы успешно зашли');
+                    loginForm.reset();
+                    window.location.href = '/'
+                    break;
+            }
+
             return 0;
         }
     });
@@ -98,6 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case 201:
                 console.log('Вы успешно зарегистрировались');
+
+                const userEnter = await fetch('http://localhost:9999/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json;charset=utf-8',
+                    },
+                    body: JSON.stringify({username, password}),
+                    credentials: "include"
+                });
+
+                if (userEnter.status === 200) {
+                    registerForm.reset();
+                    window.location.href = '/'
+                    return 0;
+                }
+                showErrorContainer('Произошла какая-то ошибка, попробуйте позже.')
+
                 break;
         }
     });
