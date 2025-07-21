@@ -17,12 +17,26 @@
         </div>
     </div>
 </header>
+<div class="error hide-error" id="error-message-container">
+    <div class="error-sign">
+        <div class="sign">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="9" fill="none" stroke="red" stroke-opacity="0.5" stroke-width="2"/>
 
+                <rect x="9" y="4" width="2" height="8" fill="red" fill-opacity="0.5"/>
+                <circle cx="10" cy="14" r="1" fill="red" fill-opacity="0.5"/>
+            </svg>
+        </div>
+    </div>
+    <div class="error-message" id="error-message">
+        ОШИБКА!! ОШИБКА!! ОШИБКА!! ОШИБКА ОШИБКА!! ОШИБКА!БКА!! ОШИБКА!! ОШИБКА!! ОШИБКА!! ОШИБКА!! ОШИБКА!! ОШИБКА!! ОШИБКА!!
+    </div>
+</div>
 <div class="card_input card_signin" id="sign_in">
     <div class="card_input__header">
         <h1>Вход</h1>
     </div>
-    <form action="http://localhost:63342/final_project_tbank/portfolio_storage_project/final_project_tbank/src/pages/POST">
+    <form method="post" id="sign_in__form">
         <div class="card_input__form form_signin">
             <div class="card_input__form__wrapper">
                 <input type="text" id="login_signin" placeholder=" ">
@@ -47,7 +61,7 @@
     <div class="card_input__header">
         <h1>Регистрация</h1>
     </div>
-    <form action="http://localhost:63342/final_project_tbank/portfolio_storage_project/final_project_tbank/src/pages/POST">
+    <form method="post" id="sign_up__form">
         <div class="card_input__form">
             <div class="card_input__form__wrapper">
                 <input type="text" id="login" placeholder=" ">
