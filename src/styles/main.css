@@ -59,6 +59,10 @@ body {
     display: flex;
     justify-content: center;
     align-self: flex-start;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 10;
 }
 
 .navigation__container {
@@ -217,10 +221,12 @@ body {
 }
 
 .posts {
-    margin-top: 50px;
+    margin-top: 114px;
     height: auto;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -232,11 +238,12 @@ body {
     width: 80%;
     max-width: 1024px;
     box-shadow: rgba(0, 0, 0, 0.12) 0 6px 34px;
+    margin-bottom: 65px;
 }
 
 .post__header {
     box-sizing: border-box;
-    height: 68px;
+    min-height: 68px;
     width: 100%;
     padding: 24px;
 }
@@ -325,5 +332,26 @@ body {
     position: absolute;
     transform: translateY(2px) translateX(-6px);
     opacity: 0;
-    transition: all ease-out 0.3s;
+}
+
+.show-like {
+    transform: translateY(2px) translateX(-7px);
+    opacity: 1;
+    animation-name: showLike;
+    animation-iteration-count: 1;
+    animation-duration: 0.3s;
+}
+
+@keyframes showLike {
+    from {
+        transform: translateY(2px) translateX(-7px) scale(1, 1);
+    }
+
+    to {
+        transform: translateY(2px) translateX(-7px) scale(1, 1);
+    }
+
+    50% {
+        transform: translateY(2px) translateX(-7px) scale(1.1, 1.1);
+    }
 }

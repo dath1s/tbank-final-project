@@ -1,4 +1,19 @@
+function hideErrorContainer() {
+    const errorWindow = document.getElementById('error-message-container');
+    errorWindow.classList.add('hide-error');
+}
+
+function showErrorContainer(message) {
+    const errorWindow = document.getElementById('error-message-container');
+    const errorMessage = document.getElementById('error-message');
+
+    errorWindow.classList.remove('hide-error');
+    errorMessage.innerHTML = message;
+}
+
 async function hideRegisterForm() {
+    hideErrorContainer();
+
     const enterFormBlock = await document.getElementById('sign_in');
     const registerFormBlock = await document.getElementById('sign_up');
 
@@ -11,6 +26,8 @@ async function hideRegisterForm() {
 }
 
 async function hideEnterForm() {
+    hideErrorContainer();
+
     const enterFormBlock = await document.getElementById('sign_in');
     const registerFormBlock = await document.getElementById('sign_up');
 
@@ -29,22 +46,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const enterFormBlock = document.getElementById('sign_in');
     const registerFormBlock = document.getElementById('sign_up');
 
-    const errorWindow = document.getElementById('error-message-container');
-    const errorMessage = document.getElementById('error-message');
 
     if (window.location.hash === '#sign-in') {
         await hideRegisterForm();
     } else {
         await hideEnterForm();
-    }
-
-    function hideErrorContainer() {
-        errorWindow.classList.add('hide-error');
-    }
-
-    function showErrorContainer(message) {
-        errorWindow.classList.remove('hide-error');
-        errorMessage.innerHTML = message;
     }
 
     loginForm.addEventListener('submit', async (event) => {
