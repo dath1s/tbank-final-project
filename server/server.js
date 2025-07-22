@@ -46,7 +46,7 @@ app.post('/api/register', async (req, res) => {
         passwordHash,
         name: "New User",
         description: '',
-        photoUrl: `/std_logo.png`,
+        photoUrl: ``,
         likedPosts: new Set(),
     });
 

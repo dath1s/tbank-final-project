@@ -23,4 +23,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         enterBut.classList.remove('not-display');
         registerBut.classList.remove('not-display');
     }
+
+    logoutBut.addEventListener("click", async () => {
+        const logoutReq = await fetch('http://localhost:9999/api/logout', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json;charset=utf-8',
+            },
+            credentials: "include"
+        });
+        window.location.reload();
+    });
+
+    enterBut.addEventListener("click", () => {
+        window.location.href = 'http://localhost:9998/sign#sign-in';
+    });
+
+    registerBut.addEventListener("click", () => {
+        window.location.href = 'http://localhost:9998/sign#sign-up';
+    });
 });

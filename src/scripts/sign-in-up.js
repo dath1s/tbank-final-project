@@ -2,7 +2,6 @@ async function hideRegisterForm() {
     const enterFormBlock = await document.getElementById('sign_in');
     const registerFormBlock = await document.getElementById('sign_up');
 
-    const loginForm = document.getElementById('sign_in__form');
     const registerForm = document.getElementById('sign_up__form');
 
     registerFormBlock.classList.add('hide');
@@ -16,7 +15,6 @@ async function hideEnterForm() {
     const registerFormBlock = await document.getElementById('sign_up');
 
     const loginForm = document.getElementById('sign_in__form');
-    const registerForm = document.getElementById('sign_up__form');
 
     enterFormBlock.classList.add('hide');
     registerFormBlock.classList.remove('hide');
@@ -24,7 +22,7 @@ async function hideEnterForm() {
     loginForm.reset();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const loginForm = document.getElementById('sign_in__form');
     const registerForm = document.getElementById('sign_up__form');
 
@@ -33,6 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const errorWindow = document.getElementById('error-message-container');
     const errorMessage = document.getElementById('error-message');
+
+    if (window.location.hash === '#sign-in') {
+        await hideRegisterForm();
+    } else {
+        await hideEnterForm();
+    }
 
     function hideErrorContainer() {
         errorWindow.classList.add('hide-error');
@@ -90,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const passwordRepeat = document.getElementById('password-repeat').value;
 
         const passwordRegex = /^[A-Za-z\d@$!%*#?&]{8,}$/;
-        const usernameRegex = /^[A-Za-z\d]{8,}$/;
+        const usernameRegex = /^[A-Za-z\d]{5,}$/;
 
         if (!username || !password || !passwordRepeat) {
             showErrorContainer('Все поля должны быть обязательно заполнены');
@@ -98,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!usernameRegex.test(username)) {
-            showErrorContainer('Логин должен быть длиной от 8' +
+            showErrorContainer('Логин должен быть длиной от 5' +
                 ' символов и стостоять только из латинских букв(a-z, A-Z) и цифр(1-9)');
             return -1;
         }

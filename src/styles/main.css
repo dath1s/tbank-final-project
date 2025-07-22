@@ -1,6 +1,7 @@
 @media (min-width: 769px) {
     :root {
         --big-font: 28px;
+        --mb-font: 23px;
         --mid-font: 18px;
         --small-font: 10px;
     }
@@ -9,6 +10,7 @@
 @media (max-width: 768px) {
     :root {
         --big-font: 24px;
+        --mb-font: 20px;
         --mid-font: 16px;
         --small-font: 10px;
     }
@@ -212,4 +214,116 @@ body {
 
 .not-display {
     display: none !important;
+}
+
+.posts {
+    margin-top: 50px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post {
+    background-color: white;
+    min-height: 166px;
+    height: auto;
+    border-radius: 24px;
+    width: 80%;
+    max-width: 1024px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 6px 34px;
+}
+
+.post__header {
+    box-sizing: border-box;
+    height: 68px;
+    width: 100%;
+    padding: 24px;
+}
+
+.post__header a {
+    text-decoration: none;
+    color: black;
+    font-size: var(--mb-font);
+    font-weight: 500;
+}
+
+.profile-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-picture {
+    margin-right: 10px;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+.post__body {
+    box-sizing: border-box;
+    padding: 0 24px 24px;
+    font-size: var(--mid-font);
+}
+
+.post__footer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    height: 68px;
+    flex-direction: row;
+    padding-left: 24px;
+    padding-bottom: 24px;
+}
+
+.post__footer button {
+    box-sizing: border-box;
+    padding: 10px;
+    min-width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--mid-font);
+    cursor: pointer;
+    transition: 0.15s cubic-bezier(0.2, 0, 1, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.comment-button {
+    background: rgba(36, 74, 127, 0.06);
+    color: rgb(18, 109, 247);
+}
+
+.like-button {
+    background: rgb(255, 221, 45);
+}
+
+.like_counter {
+    margin-left: 4px;
+}
+
+@media (hover: hover) {
+    .comment-button:hover {
+        background: rgba(36, 74, 127, 0.09);
+    }
+
+    .like-button:hover {
+        background: rgb(253, 203, 51);
+    }
+}
+
+.not_like_heart {
+    height: 24px;
+    width: 24px;
+}
+
+.like_heart {
+    position: absolute;
+    transform: translateY(2px) translateX(-6px);
+    opacity: 0;
+    transition: all ease-out 0.3s;
 }
