@@ -1,0 +1,38 @@
+:root {
+    --font-family-base: "Tinkoff Sans", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    --big-font-desktop: 28px;
+    --mb-font-desktop: 22px;
+    --mid-font-desktop: 16px;
+    --small-font-desktop: 10px;
+
+    --big-font-mobile: 24px;
+    --mb-font-mobile: 20px;
+    --mid-font-mobile: 16px;
+    --small-font-mobile: 10px;
+
+    --color-primary-yellow: rgb(255, 221, 45);
+    --color-primary-yellow-hover: rgb(253, 203, 51);
+    --color-secondary-blue: rgb(18, 109, 247);
+    --color-text-primary: black;
+    --color-background-primary: white;
+    --color-background-secondary: rgba(36, 74, 127, 0.06);
+    --color-background-secondary-hover: rgba(36, 74, 127, 0.09);
+    --color-background-nav-desktop: #f6f7f8;
+    --color-input-placeholder: rgba(0, 0, 0, 0.4);
+    --color-nav-border: rgba(0, 0, 0, 0.2);
+    --color-link-hover-border: rgba(0, 0, 0, 0.5);
+
+    --color-error-background: rgba(255, 0, 0, 0.1);
+    --color-error-text: rgba(255, 0, 0, 0.5);
+
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 24px;
+    --border-radius-full: 50%;
+
+    --shadow-main: rgba(0, 0, 0, 0.12) 0 6px 34px;
+
+    --transition-fast: all ease-out 0.3s;
+    --transition-base: 0.15s cubic-bezier(0.2, 0, 1, 1);
+
+}

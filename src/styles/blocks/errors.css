@@ -1,0 +1,43 @@
+.error {
+    box-sizing: border-box;
+    height: auto;
+    max-height: 100px;
+    background-color: var(--color-error-background);
+    color: var(--color-error-text);
+    padding: 5px 16px;
+    border-radius: var(--border-radius-sm);
+    max-width: 366px;
+    margin: 10px auto;
+    font-size: var(--mid-font);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(65px);
+    transition: var(--transition-fast);
+}
+
+.sign {
+    width: 20px;
+    height: 20px;
+}
+
+.error-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+}
+
+.error-message {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.hide-error {
+    transform: translateY(15px);
+    opacity: 0;
+}

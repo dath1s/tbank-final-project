@@ -1,0 +1,28 @@
+:root {
+    --big-font: var(--big-font-mobile);
+    --mb-font: var(--mb-font-mobile);
+    --mid-font: var(--mid-font-mobile);
+    --small-font: var(--small-font-mobile);
+}
+
+@media (min-width: 769px) {
+    :root {
+        --big-font: var(--big-font-desktop);
+        --mb-font: var(--mb-font-desktop);
+        --mid-font: var(--mid-font-desktop);
+        --small-font: var(--small-font-desktop);
+    }
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    font-family: var(--font-family-base);
+}

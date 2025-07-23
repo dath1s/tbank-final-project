@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Tinkoff Sans";
+    src:
+        url("../../fonts/TinkoffSans-Bold.woff2") format("woff2"),
+        url("../../fonts/TinkoffSans-Bold.woff") format("woff"),
+        url("../../fonts/TinkoffSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tinkoff Sans";
+    src:
+            url("../../fonts/TinkoffSans-Medium.woff2") format("woff2"),
+            url("../../fonts/TinkoffSans-Medium.woff") format("woff"),
+            url("../../fonts/TinkoffSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tinkoff Sans";
+    src:
+            url("../../fonts/TinkoffSans-Regular.woff2") format("woff2"),
+            url("../../fonts/TinkoffSans-Regular.woff") format("woff"),
+            url("../../fonts/TinkoffSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
